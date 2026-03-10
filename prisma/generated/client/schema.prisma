@@ -1,0 +1,165 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider        = "prisma-client-js"
+  previewFeatures = ["driverAdapters"]
+  output          = "./generated/client"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+model Settings {
+  id               String   @id @default(cuid())
+  name             String   @default("Himanshu Raj")
+  bio              String   @default("")
+  tagline          String   @default("Full-Stack Developer & Problem Solver")
+  location         String   @default("Punjab, India")
+  email            String   @default("himanshuraj97653@gmail.com")
+  phone            String   @default("+918340152874")
+  availability     Boolean  @default(true)
+  profilePhoto     String?
+  cvUrl            String?
+  linkedinUrl      String?
+  githubUrl        String?
+  leetcodeUrl      String?
+  hackerrankUrl    String?
+  twitterUrl       String?
+  devtoUrl         String?
+  showAbout        Boolean  @default(true)
+  showSkills       Boolean  @default(true)
+  showProjects     Boolean  @default(true)
+  showCertificates Boolean  @default(true)
+  showAchievements Boolean  @default(true)
+  showEducation    Boolean  @default(true)
+  showBlog         Boolean  @default(true)
+  showTestimonials Boolean  @default(true)
+  showOpenSource   Boolean  @default(true)
+  showContact      Boolean  @default(true)
+  createdAt        DateTime @default(now())
+  updatedAt        DateTime @updatedAt
+}
+
+model Project {
+  id          String   @id @default(cuid())
+  title       String
+  description String
+  techStack   String[] @default([])
+  githubUrl   String?
+  liveUrl     String?
+  imageUrl    String?
+  featured    Boolean  @default(false)
+  order       Int      @default(0)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+model Certificate {
+  id           String   @id @default(cuid())
+  title        String
+  organization String
+  orgLogo      String?
+  date         String
+  description  String?
+  verifyUrl    String?
+  imageUrl     String?
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+}
+
+model Achievement {
+  id          String   @id @default(cuid())
+  platform    String
+  icon        String?
+  description String
+  profileUrl  String?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+model Education {
+  id          String   @id @default(cuid())
+  institution String
+  degree      String
+  field       String
+  score       String
+  scoreType   String   @default("CGPA")
+  startYear   String
+  endYear     String
+  location    String
+  order       Int      @default(0)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+model Skill {
+  id        String   @id @default(cuid())
+  name      String
+  icon      String?
+  category  String
+  order     Int      @default(0)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Blog {
+  id         String   @id @default(cuid())
+  title      String
+  slug       String   @unique
+  content    String
+  coverImage String?
+  tags       String[] @default([])
+  published  Boolean  @default(false)
+  views      Int      @default(0)
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+}
+
+model Testimonial {
+  id        String   @id @default(cuid())
+  name      String
+  role      String
+  company   String
+  message   String
+  avatar    String?
+  featured  Boolean  @default(false)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model OpenSource {
+  id          String   @id @default(cuid())
+  repoName    String
+  description String
+  githubUrl   String
+  stars       Int      @default(0)
+  language    String?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+model Message {
+  id        String   @id @default(cuid())
+  name      String
+  email     String
+  subject   String?
+  message   String
+  read      Boolean  @default(false)
+  createdAt DateTime @default(now())
+}
+
+model Subscriber {
+  id           String   @id @default(cuid())
+  email        String   @unique
+  subscribedAt DateTime @default(now())
+}
+
+model Analytics {
+  id        String   @id @default(cuid())
+  event     String
+  page      String?
+  meta      String?
+  createdAt DateTime @default(now())
+}
