@@ -45,7 +45,8 @@ export default function AdminLayout({ children }) {
         );
     }
 
-    if (status === 'unauthenticated') return null;
+    // Remove early null return so the login page (child) can actually render while unauthenticated.
+    // The individual admin pages themselves are protected.
 
     return (
         <div style={{ minHeight: '100vh', display: 'flex', background: 'var(--bg-primary)' }}>
