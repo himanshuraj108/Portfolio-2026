@@ -51,71 +51,73 @@ export default function AdminLayout({ children }) {
     return (
         <div style={{ minHeight: '100vh', display: 'flex', background: 'var(--bg-primary)' }}>
             {/* ── Sidebar ── */}
-            <aside className="admin-sidebar" style={{
-                width: 240, flexShrink: 0, display: 'flex', flexDirection: 'column',
-                position: 'sticky', top: 0, height: '100vh', overflowY: 'auto',
-            }}>
-                {/* Brand */}
-                <div style={{ padding: '1.5rem 1.25rem 1rem', borderBottom: '1px solid var(--border)' }}>
-                    <div style={{ display: 'flex', alignItems: 'center', gap: '0.625rem' }}>
-                        <div style={{
-                            width: 36, height: 36, borderRadius: '10px',
-                            background: 'linear-gradient(135deg, var(--accent-cyan), var(--accent-violet))',
-                            display: 'flex', alignItems: 'center', justifyContent: 'center',
-                            fontWeight: 800, color: 'white', fontSize: '0.85rem', flexShrink: 0,
-                        }}>HR</div>
-                        <div>
-                            <p style={{ fontWeight: 700, fontSize: '0.875rem', color: 'var(--text-primary)', lineHeight: 1.2 }}>Admin Panel</p>
-                            <p style={{ fontSize: '0.7rem', color: 'var(--text-muted)' }}>{session?.user?.email}</p>
+            {pathname !== '/admin/login' && (
+                <aside className="admin-sidebar" style={{
+                    width: 240, flexShrink: 0, display: 'flex', flexDirection: 'column',
+                    position: 'sticky', top: 0, height: '100vh', overflowY: 'auto',
+                }}>
+                    {/* Brand */}
+                    <div style={{ padding: '1.5rem 1.25rem 1rem', borderBottom: '1px solid var(--border)' }}>
+                        <div style={{ display: 'flex', alignItems: 'center', gap: '0.625rem' }}>
+                            <div style={{
+                                width: 36, height: 36, borderRadius: '10px',
+                                background: 'linear-gradient(135deg, var(--accent-cyan), var(--accent-violet))',
+                                display: 'flex', alignItems: 'center', justifyContent: 'center',
+                                fontWeight: 800, color: 'white', fontSize: '0.85rem', flexShrink: 0,
+                            }}>HR</div>
+                            <div>
+                                <p style={{ fontWeight: 700, fontSize: '0.875rem', color: 'var(--text-primary)', lineHeight: 1.2 }}>Admin Panel</p>
+                                <p style={{ fontSize: '0.7rem', color: 'var(--text-muted)' }}>{session?.user?.email}</p>
+                            </div>
                         </div>
                     </div>
-                </div>
 
-                {/* Nav */}
-                <nav style={{ flex: 1, padding: '0.75rem 0.75rem' }}>
-                    {NAV.map(({ label, href, icon: Icon }) => {
-                        const active = pathname === href;
-                        return (
-                            <Link key={href} href={href} style={{ textDecoration: 'none', display: 'block', marginBottom: '0.2rem' }}>
-                                <motion.div
-                                    whileHover={{ x: 3 }}
-                                    style={{
-                                        display: 'flex', alignItems: 'center', gap: '0.625rem',
-                                        padding: '0.6rem 0.875rem', borderRadius: '10px',
-                                        background: active ? 'var(--accent-glow-cyan)' : 'transparent',
-                                        color: active ? 'var(--accent-cyan)' : 'var(--text-secondary)',
-                                        fontWeight: active ? 600 : 400,
-                                        fontSize: '0.85rem',
-                                        transition: 'background 0.15s, color 0.15s',
-                                        borderLeft: active ? '2px solid var(--accent-cyan)' : '2px solid transparent',
-                                    }}
-                                >
-                                    <Icon size={16} />
-                                    {label}
-                                </motion.div>
-                            </Link>
-                        );
-                    })}
-                </nav>
+                    {/* Nav */}
+                    <nav style={{ flex: 1, padding: '0.75rem 0.75rem' }}>
+                        {NAV.map(({ label, href, icon: Icon }) => {
+                            const active = pathname === href;
+                            return (
+                                <Link key={href} href={href} style={{ textDecoration: 'none', display: 'block', marginBottom: '0.2rem' }}>
+                                    <motion.div
+                                        whileHover={{ x: 3 }}
+                                        style={{
+                                            display: 'flex', alignItems: 'center', gap: '0.625rem',
+                                            padding: '0.6rem 0.875rem', borderRadius: '10px',
+                                            background: active ? 'var(--accent-glow-cyan)' : 'transparent',
+                                            color: active ? 'var(--accent-cyan)' : 'var(--text-secondary)',
+                                            fontWeight: active ? 600 : 400,
+                                            fontSize: '0.85rem',
+                                            transition: 'background 0.15s, color 0.15s',
+                                            borderLeft: active ? '2px solid var(--accent-cyan)' : '2px solid transparent',
+                                        }}
+                                    >
+                                        <Icon size={16} />
+                                        {label}
+                                    </motion.div>
+                                </Link>
+                            );
+                        })}
+                    </nav>
 
-                {/* Footer actions */}
-                <div style={{ padding: '0.75rem', borderTop: '1px solid var(--border)', display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
-                    <a href="/" target="_blank" rel="noopener noreferrer" style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', padding: '0.5rem 0.875rem', borderRadius: '8px', color: 'var(--text-muted)', fontSize: '0.8rem', textDecoration: 'none', transition: 'color 0.15s' }}
-                        onMouseEnter={(e) => e.currentTarget.style.color = 'var(--text-primary)'}
-                        onMouseLeave={(e) => e.currentTarget.style.color = 'var(--text-muted)'}
-                    >
-                        <ExternalLink size={14} /> View Site
-                    </a>
-                    <button
-                        onClick={() => signOut({ callbackUrl: '/admin/login' })}
-                        style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', padding: '0.5rem 0.875rem', borderRadius: '8px', color: '#ef4444', fontSize: '0.8rem', background: 'none', border: 'none', cursor: 'pointer', width: '100%', textAlign: 'left', transition: 'background 0.15s' }}
-                        onMouseEnter={(e) => e.currentTarget.style.background = 'rgba(239,68,68,0.08)'}
-                        onMouseLeave={(e) => e.currentTarget.style.background = 'none'}
-                    >
-                        <LogOut size={14} /> Sign Out
-                    </button>
-                </div>
-            </aside>
+                    {/* Footer actions */}
+                    <div style={{ padding: '0.75rem', borderTop: '1px solid var(--border)', display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
+                        <a href="/" target="_blank" rel="noopener noreferrer" style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', padding: '0.5rem 0.875rem', borderRadius: '8px', color: 'var(--text-muted)', fontSize: '0.8rem', textDecoration: 'none', transition: 'color 0.15s' }}
+                            onMouseEnter={(e) => e.currentTarget.style.color = 'var(--text-primary)'}
+                            onMouseLeave={(e) => e.currentTarget.style.color = 'var(--text-muted)'}
+                        >
+                            <ExternalLink size={14} /> View Site
+                        </a>
+                        <button
+                            onClick={() => signOut({ callbackUrl: '/admin/login' })}
+                            style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', padding: '0.5rem 0.875rem', borderRadius: '8px', color: '#ef4444', fontSize: '0.8rem', background: 'none', border: 'none', cursor: 'pointer', width: '100%', textAlign: 'left', transition: 'background 0.15s' }}
+                            onMouseEnter={(e) => e.currentTarget.style.background = 'rgba(239,68,68,0.08)'}
+                            onMouseLeave={(e) => e.currentTarget.style.background = 'none'}
+                        >
+                            <LogOut size={14} /> Sign Out
+                        </button>
+                    </div>
+                </aside>
+            )}
 
             {/* ── Main ── */}
             <main style={{ flex: 1, overflowY: 'auto', minHeight: '100vh' }}>
