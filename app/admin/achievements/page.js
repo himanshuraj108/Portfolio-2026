@@ -91,7 +91,7 @@ export default function AdminAchievementsPage() {
                     </motion.div>
                 )}
             </AnimatePresence>
-            <style>{`@keyframes spin { to { transform: rotate(360deg); } }`}</style>
+            <style dangerouslySetInnerHTML={{ __html: `@keyframes spin { to { transform: rotate(360deg); } }` }} />
         </div>
     );
 }

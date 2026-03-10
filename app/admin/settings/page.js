@@ -134,7 +134,7 @@ export default function AdminSettingsPage() {
                 {saving ? <><Loader2 size={18} style={{ animation: 'spin 1s linear infinite' }} />Saving…</> : <><Save size={18} />Save Settings</>}
             </motion.button>
 
-            <style>{`@keyframes spin { to { transform: rotate(360deg); } }`}</style>
+            <style dangerouslySetInnerHTML={{ __html: `@keyframes spin { to { transform: rotate(360deg); } }` }} />
         </div>
     );
 }

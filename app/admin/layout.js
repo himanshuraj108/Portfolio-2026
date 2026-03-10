@@ -40,7 +40,7 @@ export default function AdminLayout({ children }) {
         return (
             <div style={{ minHeight: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center', background: 'var(--bg-primary)' }}>
                 <Loader2 size={32} style={{ color: 'var(--accent-cyan)', animation: 'spin 1s linear infinite' }} />
-                <style>{`@keyframes spin { to { transform: rotate(360deg); } }`}</style>
+                <style dangerouslySetInnerHTML={{ __html: `@keyframes spin { to { transform: rotate(360deg); } }` }} />
             </div>
         );
     }
@@ -121,7 +121,7 @@ export default function AdminLayout({ children }) {
                 {children}
             </main>
 
-            <style>{`@keyframes spin { to { transform: rotate(360deg); } }`}</style>
+            <style dangerouslySetInnerHTML={{ __html: `@keyframes spin { to { transform: rotate(360deg); } }` }} />
         </div>
     );
 }
