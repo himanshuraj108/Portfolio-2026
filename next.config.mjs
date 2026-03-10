@@ -11,7 +11,7 @@ const nextConfig = {
       { protocol: 'https', hostname: 'media.licdn.com' },
     ],
   },
-  serverExternalPackages: ['@prisma/client', 'pg', '@prisma/adapter-pg'],
+  serverExternalPackages: ['@prisma/client'],
   experimental: {
     serverActions: {
       allowedOrigins: ['localhost:3000'],
