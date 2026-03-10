@@ -12,6 +12,13 @@ const nextConfig = {
     serverActions: {
       allowedOrigins: ['localhost:3000'],
     },
+    outputFileTracingIncludes: {
+      '/api/**/*': ['./prisma/schema.prisma'],
+    },
+  },
+  webpack: (config) => {
+    config.externals = [...(config.externals || []), '@prisma/client', '.prisma/client'];
+    return config;
   },
 };
 
