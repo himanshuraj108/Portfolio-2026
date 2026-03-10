@@ -1,0 +1,39 @@
+﻿node : (node:18680) [MODULE_TYPELESS_PACKAGE_JSON] 
+Warning: Module type of 
+file:///C:/Users/himan/portfolio/test-prisma.js is 
+not specified and it doesn't parse as CommonJS.
+At line:1 char:1
++ node test-prisma.js 2>&1 | Out-File -Encoding 
+utf8 node_err.txt
++ ~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: ((node 
+   :18680) [M...se as CommonJS.:String) [], Remot  
+  eException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+Reparsing as ES module because module syntax was 
+detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to 
+C:\Users\himan\portfolio\package.json.
+(Use `node --trace-warnings ...` to show where the 
+warning was created)
+ERROR:
+PrismaClientConstructorValidationError: Using 
+engine type "client" requires either "adapter" or 
+"accelerateUrl" to be provided to PrismaClient 
+constructor.
+Read more at https://pris.ly/d/client-constructor
+    at vm (C:\Users\himan\portfolio\node_modules\@p
+risma\client\runtime\client.js:66:3615)
+    at jl (C:\Users\himan\portfolio\node_modules\@p
+risma\client\runtime\client.js:66:3916)
+    at new t (C:\Users\himan\portfolio\node_modules
+\@prisma\client\runtime\client.js:70:1241)
+    at file:///C:/Users/himan/portfolio/test-prisma
+.js:4:18
+    at ModuleJob.run 
+(node:internal/modules/esm/module_job:274:25)
+    at async onImport.tracePromise.__proto__ 
+(node:internal/modules/esm/loader:644:26)
+    at async asyncRunEntryPointWithESMLoader 
+(node:internal/modules/run_main:116:5)
