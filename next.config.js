@@ -16,10 +16,7 @@ const nextConfig = {
       '/api/**/*': ['./prisma/schema.prisma'],
     },
   },
-  webpack: (config) => {
-    config.externals = [...(config.externals || []), '@prisma/client', '.prisma/client'];
-    return config;
-  },
 };
+
 
 export default nextConfig;
