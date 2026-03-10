@@ -11,6 +11,8 @@ export default function OpenSource() {
         fetch('/api/opensource').then((r) => r.json()).then(setItems).catch(() => { });
     }, []);
 
+    const formatUrl = (url) => !url ? '' : url.startsWith('http') ? url : `https://${url}`;
+
     if (items.length === 0) return null;
 
     return (
@@ -23,7 +25,7 @@ export default function OpenSource() {
 
                 <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))', gap: '1.25rem' }}>
                     {items.map((repo, i) => (
-                        <motion.a key={repo.id} href={repo.githubUrl} target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'none' }}
+                        <motion.a key={repo.id} href={formatUrl(repo.githubUrl)} target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'none' }}
                             initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.07 }}>
                             <motion.div whileHover={{ y: -4 }} className="card-base" style={{ padding: '1.25rem' }}>
                                 <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '0.625rem' }}>

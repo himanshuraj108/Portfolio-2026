@@ -9,6 +9,8 @@ export default function Projects() {
     const [filter, setFilter] = useState('All');
     const [loading, setLoading] = useState(true);
 
+    const formatUrl = (url) => !url ? '' : url.startsWith('http') ? url : `https://${url}`;
+
     useEffect(() => {
         fetch('/api/projects').then((r) => r.json()).then((data) => {
             setProjects(data);
@@ -62,7 +64,7 @@ export default function Projects() {
                                 <div
                                     onClick={() => {
                                         const url = project.liveUrl || project.githubUrl;
-                                        if (url) window.open(url, '_blank', 'noopener,noreferrer');
+                                        if (url) window.open(formatUrl(url), '_blank', 'noopener,noreferrer');
                                     }}
                                     style={{
                                         height: 180, background: 'var(--bg-tertiary)', position: 'relative',
@@ -74,7 +76,7 @@ export default function Projects() {
                                     ) : project.liveUrl ? (
                                         <div style={{ position: 'relative', width: '100%', height: '100%', overflow: 'hidden', background: '#fff' }}>
                                             <iframe
-                                                src={project.liveUrl}
+                                                src={formatUrl(project.liveUrl)}
                                                 title={`${project.title} preview`}
                                                 loading="lazy"
                                                 style={{
@@ -131,13 +133,13 @@ export default function Projects() {
                                     {/* Links */}
                                     <div style={{ display: 'flex', gap: '0.75rem' }}>
                                         {project.githubUrl && (
-                                            <a href={project.githubUrl} target="_blank" rel="noopener noreferrer"
+                                            <a href={formatUrl(project.githubUrl)} target="_blank" rel="noopener noreferrer"
                                                 style={{ display: 'flex', alignItems: 'center', gap: '0.35rem', color: 'var(--text-secondary)', fontSize: '0.8rem', textDecoration: 'none', fontWeight: 500 }}
                                                 onClick={() => fetch('/api/analytics', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ event: 'github_click', page: '/projects' }) })}
                                             ><Github size={14} /> Code</a>
                                         )}
                                         {project.liveUrl && (
-                                            <a href={project.liveUrl} target="_blank" rel="noopener noreferrer"
+                                            <a href={formatUrl(project.liveUrl)} target="_blank" rel="noopener noreferrer"
                                                 style={{ display: 'flex', alignItems: 'center', gap: '0.35rem', color: 'var(--accent-cyan)', fontSize: '0.8rem', textDecoration: 'none', fontWeight: 500 }}
                                             ><ExternalLink size={14} /> Live Demo</a>
                                         )}

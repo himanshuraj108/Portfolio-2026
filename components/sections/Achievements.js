@@ -15,6 +15,8 @@ export default function Achievements() {
         fetch('/api/achievements').then((r) => r.json()).then(setItems).catch(() => { });
     }, []);
 
+    const formatUrl = (url) => !url ? '' : url.startsWith('http') ? url : `https://${url}`;
+
     return (
         <section id="achievements" className="section-padding" style={{ background: 'var(--bg-secondary)' }}>
             <div style={{ maxWidth: 1280, margin: '0 auto', padding: '0 1.5rem' }}>
@@ -37,7 +39,7 @@ export default function Achievements() {
                                 </div>
                                 <p style={{ color: 'var(--text-secondary)', fontSize: '0.875rem', lineHeight: 1.7 }}>{item.description}</p>
                                 {item.profileUrl && (
-                                    <a href={item.profileUrl} target="_blank" rel="noopener noreferrer"
+                                    <a href={formatUrl(item.profileUrl)} target="_blank" rel="noopener noreferrer"
                                         style={{ display: 'inline-flex', alignItems: 'center', gap: '0.35rem', marginTop: '1rem', color, fontSize: '0.8rem', fontWeight: 600, textDecoration: 'none' }}>
                                         <ExternalLink size={13} /> View Profile
                                     </a>

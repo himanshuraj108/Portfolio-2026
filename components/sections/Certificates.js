@@ -12,6 +12,8 @@ export default function Certificates() {
         fetch('/api/certificates').then((r) => r.json()).then((d) => { setCerts(d); setLoading(false); }).catch(() => setLoading(false));
     }, []);
 
+    const formatUrl = (url) => !url ? '' : url.startsWith('http') ? url : `https://${url}`;
+
     return (
         <section id="certificates" className="section-padding">
             <div style={{ maxWidth: 1280, margin: '0 auto', padding: '0 1.5rem' }}>
@@ -41,8 +43,8 @@ export default function Certificates() {
                                 <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '0.5rem' }}>
                                     <span style={{ display: 'flex', alignItems: 'center', gap: '0.3rem', color: 'var(--text-muted)', fontSize: '0.75rem' }}><Calendar size={12} />{cert.date}</span>
                                     <div style={{ display: 'flex', gap: '0.75rem' }}>
-                                        {cert.verifyUrl && <a href={cert.verifyUrl} target="_self" rel="noopener noreferrer" style={{ fontSize: '0.75rem', color: 'var(--accent-cyan)', textDecoration: 'none', fontWeight: 600, display: 'flex', alignItems: 'center', gap: '0.25rem' }}><ExternalLink size={11} />Verify</a>}
-                                        {cert.imageUrl && <a href={cert.imageUrl} target="_self" rel="noopener noreferrer" style={{ fontSize: '0.75rem', color: 'var(--text-secondary)', textDecoration: 'none', fontWeight: 500, display: 'flex', alignItems: 'center', gap: '0.25rem' }}>View</a>}
+                                        {cert.verifyUrl && <a href={formatUrl(cert.verifyUrl)} target="_self" rel="noopener noreferrer" style={{ fontSize: '0.75rem', color: 'var(--accent-cyan)', textDecoration: 'none', fontWeight: 600, display: 'flex', alignItems: 'center', gap: '0.25rem' }}><ExternalLink size={11} />Verify</a>}
+                                        {cert.imageUrl && <a href={formatUrl(cert.imageUrl)} target="_self" rel="noopener noreferrer" style={{ fontSize: '0.75rem', color: 'var(--text-secondary)', textDecoration: 'none', fontWeight: 500, display: 'flex', alignItems: 'center', gap: '0.25rem' }}>View</a>}
                                     </div>
                                 </div>
                             </motion.div>
