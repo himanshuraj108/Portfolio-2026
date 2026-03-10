@@ -19,17 +19,13 @@ const NAV_LINKS = [
 export default function Navbar() {
     const [scrolled, setScrolled] = useState(false);
     const [mobileOpen, setMobileOpen] = useState(false);
-    const [cvUrl, setCvUrl] = useState(null);
+    const [cvUrl, setCvUrl] = useState('/resume.pdf');
     const pathname = usePathname();
 
     useEffect(() => {
         const onScroll = () => setScrolled(window.scrollY > 20);
         window.addEventListener('scroll', onScroll);
         return () => window.removeEventListener('scroll', onScroll);
-    }, []);
-
-    useEffect(() => {
-        fetch('/api/cv').then((r) => r.json()).then((d) => setCvUrl(d.cvUrl)).catch(() => { });
     }, []);
 
     useEffect(() => {

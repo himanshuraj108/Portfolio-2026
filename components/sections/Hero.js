@@ -120,10 +120,9 @@ function ParticleCanvas() {
 }
 
 export default function Hero() {
-    const [cvUrl, setCvUrl] = useState(null);
+    const [cvUrl, setCvUrl] = useState('/resume.pdf');
 
     useEffect(() => {
-        fetch('/api/cv').then((r) => r.json()).then((d) => setCvUrl(d.cvUrl)).catch(() => { });
         // Log page view
         fetch('/api/analytics', {
             method: 'POST',
