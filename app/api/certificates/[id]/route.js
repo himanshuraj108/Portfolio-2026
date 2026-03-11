@@ -17,7 +17,8 @@ export async function PUT(req, { params }) {
     if (!session) return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
     try {
         const body = await req.json();
-        const cert = await prisma.certificate.update({ where: { id }, data: body });
+        const { id: _id, createdAt, updatedAt, ...data } = body;
+        const cert = await prisma.certificate.update({ where: { id }, data });
         return NextResponse.json(cert);
     } catch { return NextResponse.json({ error: 'Failed' }, { status: 500 }); }
 }

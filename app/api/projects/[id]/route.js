@@ -20,7 +20,8 @@ export async function PUT(request, { params }) {
 
     try {
         const body = await request.json();
-        const project = await prisma.project.update({ where: { id }, data: body });
+        const { id: _id, createdAt, updatedAt, ...data } = body;
+        const project = await prisma.project.update({ where: { id }, data });
         return NextResponse.json(project);
     } catch (error) {
         return NextResponse.json({ error: 'Failed to update project' }, { status: 500 });
