@@ -89,7 +89,7 @@ export default function About() {
                         initial={{ opacity: 0, x: 30 }} whileInView={{ opacity: 1, x: 0 }}
                         viewport={{ once: true }} transition={{ duration: 0.6, delay: 0.1 }}
                     >
-                        <h3 className="heading-md" style={{ marginBottom: '1rem' }}>Full-Stack Developer & Problem Solver</h3>
+                        <h3 className="heading-md" style={{ marginBottom: '1rem' }}>Full-Stack Developer & Data Scientist</h3>
                         <p style={{ color: 'var(--text-secondary)', lineHeight: 1.8, marginBottom: '1.5rem', fontSize: '0.95rem' }}>
                             {settings?.bio || `I'm Himanshu Raj, a Computer Science Engineering student at Lovely Professional University, Punjab. 
               I build full-stack web applications that solve real problems — from library management systems to AI-powered blogging platforms.`}
