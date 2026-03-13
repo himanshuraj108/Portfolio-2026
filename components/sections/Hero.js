@@ -16,10 +16,8 @@ const ROLES = [
 const SOCIAL = [
     { icon: Github, href: 'https://github.com/himanshuraj108', label: 'GitHub', event: 'github_click' },
     { icon: Linkedin, href: 'https://linkedin.com/in/himanshuraj108', label: 'LinkedIn', event: 'linkedin_click' },
-    { icon: SiLeetcode, href: 'https://leetcode.com/himanshuraj', label: 'LeetCode', event: 'leetcode_click' },
-    { icon: SiHackerrank, href: 'https://hackerrank.com/himanshuraj', label: 'HackerRank', event: 'hackerrank_click' },
-    { icon: Twitter, href: 'https://twitter.com/himanshuraj', label: 'Twitter', event: 'twitter_click' },
-    { icon: SiDevdotto, href: 'https://dev.to/himanshuraj', label: 'Dev.to', event: 'devto_click' },
+    { icon: SiLeetcode, href: 'https://leetcode.com/himanshuraj108', label: 'LeetCode', event: 'leetcode_click' },
+    { icon: SiHackerrank, href: 'https://www.hackerrank.com/profile/himanshuraj48512', label: 'HackerRank', event: 'hackerrank_click' },
 ];
 
 function TypewriterText({ words }) {
