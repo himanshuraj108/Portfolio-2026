@@ -16,7 +16,7 @@ const ROLES = [
 
 const SOCIAL = [
     { icon: Github, href: 'https://github.com/himanshuraj108', label: 'GitHub', event: 'github_click' },
-    { icon: Linkedin, href: 'https://linkedin.com/in/himanshuraj108', label: 'LinkedIn', event: 'linkedin_click' },
+    { icon: Linkedin, href: 'https://www.linkedin.com/in/himanshu-raj-184488303/', label: 'LinkedIn', event: 'linkedin_click' },
     { icon: SiLeetcode, href: 'https://leetcode.com/himanshuraj108', label: 'LeetCode', event: 'leetcode_click' },
     { icon: SiHackerrank, href: 'https://www.hackerrank.com/profile/himanshuraj48512', label: 'HackerRank', event: 'hackerrank_click' },
 ];
