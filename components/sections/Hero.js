@@ -8,6 +8,7 @@ import Link from 'next/link';
 
 const ROLES = [
     'Full-Stack Developer',
+    'Data Scientist',
     'Problem Solver',
     'Open Source Contributor',
     'CS Student @ LPU',
