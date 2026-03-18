@@ -21,7 +21,9 @@ export async function PUT(req, { params }) {
     if (!session) return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
     try {
         const body = await req.json();
-        const post = await prisma.blog.update({ where: { id }, data: body });
+        // Strip auto-managed fields that Prisma/MongoDB won't accept in update data
+        const { id: _id, createdAt, updatedAt, views, ...data } = body;
+        const post = await prisma.blog.update({ where: { id }, data });
         return NextResponse.json(post);
     } catch { return NextResponse.json({ error: 'Failed' }, { status: 500 }); }
 }
