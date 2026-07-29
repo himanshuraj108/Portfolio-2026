@@ -16,6 +16,15 @@ export const metadata = {
   ],
   authors: [{ name: 'Himanshu Raj', url: 'https://github.com/himanshuraj108' }],
   creator: 'Himanshu Raj',
+  icons: {
+    icon: [
+      { url: '/favicon.svg', type: 'image/svg+xml' },
+    ],
+    apple: [
+      { url: '/favicon.svg', type: 'image/svg+xml' },
+    ],
+    shortcut: '/favicon.svg',
+  },
   openGraph: {
     type: 'website',
     locale: 'en_US',
