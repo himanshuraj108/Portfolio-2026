@@ -1,29 +1,159 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# 🚀 Himanshu Raj — Portfolio 2026
 
-## Getting Started
+<div align="center">
 
-First, run the development server:
+![Next.js](https://img.shields.io/badge/Next.js-16.1.6-black?style=for-the-badge&logo=next.js)
+![React](https://img.shields.io/badge/React-19-61DAFB?style=for-the-badge&logo=react)
+![MongoDB](https://img.shields.io/badge/MongoDB-Atlas-47A248?style=for-the-badge&logo=mongodb)
+![Prisma](https://img.shields.io/badge/Prisma-6.4.1-2D3748?style=for-the-badge&logo=prisma)
+![Vercel](https://img.shields.io/badge/Deployed-Vercel-000000?style=for-the-badge&logo=vercel)
+
+**A modern, full-stack developer portfolio built with Next.js 16, MongoDB, and Framer Motion.**
+
+[🌐 Live Demo](https://himanshuraj-portfolio.vercel.app) · [📧 Contact](mailto:himanshuraj97653@gmail.com) · [💼 LinkedIn](https://linkedin.com/in/himanshuraj)
+
+</div>
+
+---
+
+## ✨ Features
+
+- 🎨 **Dark / Light Mode** — Seamless theme switching with `next-themes`
+- ⚡ **Dynamic Data** — All projects, skills, and content served from MongoDB via Prisma
+- 🔐 **Admin Panel** — Password-protected dashboard to manage all content (projects, skills, blog, certificates, achievements)
+- 📊 **Analytics** — Built-in page view and event tracking
+- 📬 **Contact Form** — Email delivery via Nodemailer
+- 🖼️ **Image Uploads** — Cloudinary integration for media management
+- 💨 **Smooth Animations** — Framer Motion throughout
+- 📱 **Fully Responsive** — Mobile-first design
+- 🔍 **SEO Optimized** — Open Graph, Twitter Cards, meta tags on every page
+
+---
+
+## 🛠️ Tech Stack
+
+| Layer | Technology |
+|---|---|
+| **Framework** | Next.js 16 (App Router) |
+| **Frontend** | React 19, Framer Motion, Lucide Icons |
+| **Styling** | Tailwind CSS 4, Custom CSS Variables |
+| **Database** | MongoDB Atlas |
+| **ORM** | Prisma 6 |
+| **Auth** | NextAuth v5 + bcryptjs |
+| **Storage** | Cloudinary |
+| **Email** | Nodemailer |
+| **Deployment** | Vercel |
+
+---
+
+## 📂 Project Structure
+
+```
+Portfolio-2026/
+├── app/                    # Next.js App Router pages
+│   ├── admin/              # Protected admin dashboard
+│   ├── api/                # REST API routes
+│   │   ├── projects/       # Projects CRUD
+│   │   ├── skills/         # Skills CRUD
+│   │   ├── blog/           # Blog CRUD
+│   │   └── ...             # Other endpoints
+│   └── ...                 # Public pages
+├── components/
+│   ├── sections/           # Hero, About, Projects, Skills, etc.
+│   ├── layout/             # Navbar, Footer, LoadingScreen
+│   └── ui/                 # Reusable UI components
+├── lib/                    # Prisma client, Auth, Cloudinary, Nodemailer
+├── prisma/
+│   └── schema.prisma       # MongoDB models
+└── public/                 # Static assets, favicon
+```
+
+---
+
+## 🚀 Getting Started
+
+### Prerequisites
+- Node.js 18+
+- MongoDB Atlas account
+- Cloudinary account (for image uploads)
+
+### Installation
+
+```bash
+# Clone the repository
+git clone https://github.com/himanshuraj108/Portfolio-2026.git
+cd Portfolio-2026
+
+# Install dependencies
+npm install
+
+# Set up environment variables
+cp .env.example .env.local
+```
+
+### Environment Variables
+
+```env
+DATABASE_URL="mongodb+srv://<user>:<password>@<cluster>.mongodb.net/<db>?appName=Portfolio"
+NEXTAUTH_SECRET="your-secret-key"
+NEXTAUTH_URL="http://localhost:3000"
+ADMIN_PASSWORD="your-admin-password"
+CLOUDINARY_CLOUD_NAME="your-cloud-name"
+CLOUDINARY_API_KEY="your-api-key"
+CLOUDINARY_API_SECRET="your-api-secret"
+NODEMAILER_EMAIL="your-email@gmail.com"
+NODEMAILER_PASSWORD="your-app-password"
+NEXT_PUBLIC_SITE_URL="http://localhost:3000"
+```
+
+### Run Locally
 
 ```bash
 npm run dev
+```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+### Admin Panel
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Navigate to [http://localhost:3000/admin](http://localhost:3000/admin) and login with your admin password to manage all portfolio content.
 
-## Learn More
+---
 
-To learn more about Next.js, take a look at the following resources:
+## 📸 Sections
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+| Section | Description |
+|---|---|
+| **Hero** | Animated intro with name, tagline, CTA buttons |
+| **About** | Bio, stats, availability status |
+| **Skills** | Filterable skill grid with category color coding |
+| **Projects** | Featured + all projects with live/GitHub links |
+| **Education** | Academic timeline |
+| **Certificates** | Verified certificates with logos |
+| **Achievements** | Competitive programming & platform stats |
+| **Blog** | Markdown-powered blog with syntax highlighting |
+| **Testimonials** | Peer and collaborator testimonials |
+| **Contact** | Email form + social links |
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+---
 
-## Deploy on Vercel
+## 🌟 Featured Projects
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+1. **Vertex CRM** — Enterprise CRM with TypeScript full-stack
+2. **Apna Lakshay — AI-Powered LMS** — LLM-integrated Learning Management System
+3. **Your Code Visualizer (YCV)** — AI-powered code visualization tool
+4. **AI Investment Research Agent** — Autonomous financial research AI agent
+5. **AI-Powered Blog App** — Smart content creation platform
+6. **AI-Powered Resume Builder** — ATS-optimized resume generation
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+---
+
+## 📄 License
+
+MIT © [Himanshu Raj](https://github.com/himanshuraj108)
+
+---
+
+<div align="center">
+  Made with ❤️ by <a href="https://github.com/himanshuraj108">Himanshu Raj</a>
+</div>
