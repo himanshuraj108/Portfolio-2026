@@ -148,6 +148,44 @@ Navigate to [http://localhost:3000/admin](http://localhost:3000/admin) and login
 
 ---
 
+## ⚡ Performance
+
+- **Turbopack** build for blazing fast dev experience
+- **Image optimization** via Next.js `<Image>` + Cloudinary CDN
+- **Static generation** for public pages, dynamic for admin
+- **Skeleton loaders** on all data-fetched sections
+- **Lazy-loaded iframes** for project previews
+
+---
+
+## 🗺️ Roadmap
+
+- [ ] AI-powered "Chat with Portfolio" feature
+- [ ] GitHub activity integration
+- [ ] Blog comment system
+- [ ] Resume PDF auto-generation
+- [ ] Multi-language support (i18n)
+- [ ] PWA support
+
+---
+
+## 🤝 Contributing
+
+This is a personal portfolio but feel free to fork and adapt it for your own use!
+
+```bash
+# Fork the repo, then:
+git clone https://github.com/<your-username>/Portfolio-2026.git
+cd Portfolio-2026
+npm install
+# Create your feature branch
+git checkout -b feature/amazing-feature
+git commit -m "feat: add amazing feature"
+git push origin feature/amazing-feature
+```
+
+---
+
 ## 📄 License
 
 MIT © [Himanshu Raj](https://github.com/himanshuraj108)
@@ -156,4 +194,6 @@ MIT © [Himanshu Raj](https://github.com/himanshuraj108)
 
 <div align="center">
   Made with ❤️ by <a href="https://github.com/himanshuraj108">Himanshu Raj</a>
+  <br/>
+  <sub>⭐ Star this repo if you found it helpful!</sub>
 </div>
