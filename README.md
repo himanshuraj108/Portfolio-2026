@@ -1,4 +1,4 @@
-# 🚀 Himanshu Raj — Portfolio 2026
+# Himanshu Raj — Portfolio 2026
 
 <div align="center">
 
