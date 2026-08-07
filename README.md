@@ -10,7 +10,7 @@
 
 **A modern, full-stack developer portfolio built with Next.js 16, MongoDB, and Framer Motion.**
 
-[🌐 Live Demo](https://himanshuraj-portfolio.vercel.app) · [📧 Contact](mailto:himanshuraj97653@gmail.com) · [💼 LinkedIn](https://linkedin.com/in/himanshuraj)
+[ Live Demo](https://himanshuraj-portfolio.vercel.app) · [ Contact](mailto:himanshuraj97653@gmail.com) · [ LinkedIn](https://linkedin.com/in/himanshuraj)
 
 </div>
 
